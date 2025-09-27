@@ -13,7 +13,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
             <Package className="h-6 w-6 text-primary" />
-            TokenAssets
+            Web3Market
           </Link>
           
           <div className="flex items-center gap-1">
@@ -40,7 +40,7 @@ export const Navigation = () => {
             >
               <Link to="/create" className="flex items-center gap-2">
                 <Plus className="h-4 w-4" />
-                List Asset
+                Sell Item
               </Link>
             </Button>
           </div>
