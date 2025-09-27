@@ -11,68 +11,74 @@ const Home = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Animated Background */}
+        {/* Enhanced Animated Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-hero opacity-20" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(147,51,234,0.3),transparent_50%)] animate-pulse" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse" style={{animationDelay: '1s'}} />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_90%,rgba(168,85,247,0.2),transparent_50%)] animate-pulse" style={{animationDelay: '2s'}} />
+          <div className="absolute inset-0 bg-gradient-mesh animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+          
+          {/* Mesh gradient overlay */}
+          <div className="absolute inset-0 opacity-70">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary/30 to-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}} />
+            <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
+          </div>
         </div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}} />
-        <div className="absolute top-40 right-20 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}} />
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-primary/30 rounded-full blur-xl animate-bounce" style={{animationDelay: '2.5s'}} />
+        {/* Floating Elements with glow */}
+        <div className="absolute top-20 left-10 w-24 h-24 bg-primary/30 rounded-full blur-xl animate-bounce shadow-glow" style={{animationDelay: '0.5s'}} />
+        <div className="absolute top-40 right-20 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-bounce shadow-glow" style={{animationDelay: '1.5s'}} />
+        <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-primary/40 rounded-full blur-xl animate-bounce shadow-glow" style={{animationDelay: '2.5s'}} />
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-accent/30 rounded-full blur-xl animate-bounce shadow-glow" style={{animationDelay: '3s'}} />
         
         <div className="relative container mx-auto px-4 z-10">
           <div className="text-center space-y-12 max-w-6xl mx-auto">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-2 text-sm text-primary animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-8 py-3 text-sm text-primary animate-fade-in backdrop-blur-sm shadow-inner">
                 <Sparkles className="h-4 w-4" />
-                Web3 Powered Marketplace
+                Real World Asset Tokenization
               </div>
               
-              <h1 className="text-7xl md:text-8xl font-black bg-gradient-hero bg-clip-text text-transparent leading-tight tracking-tight">
-                SELL
-                <span className="block text-6xl md:text-7xl font-light">EVERYTHING</span>
-                <span className="block text-5xl md:text-6xl bg-gradient-primary bg-clip-text">WEB3</span>
+              <h1 className="text-7xl md:text-9xl font-black bg-gradient-hero bg-clip-text text-transparent leading-tight tracking-tight">
+                TOKENIZE
+                <span className="block text-6xl md:text-8xl font-light">REAL WORLD</span>
+                <span className="block text-5xl md:text-7xl bg-gradient-primary bg-clip-text">ASSETS</span>
               </h1>
               
-              <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-                The future of peer-to-peer selling. Secure, decentralized, and powered by blockchain technology. 
-                <span className="text-primary font-medium">Your marketplace, your rules.</span>
+              <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
+                Transform physical assets into digital tokens. Trade real estate, art, commodities, and more on the blockchain. 
+                <span className="text-primary font-medium">Unlock liquidity for any asset.</span>
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-              <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 transition-all duration-300 shadow-premium text-lg px-12 py-6 rounded-xl group">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-12">
+              <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 transition-all duration-500 shadow-premium text-lg px-16 py-8 rounded-2xl group hover:shadow-glow hover:scale-105">
                 <Link to="/create" className="flex items-center gap-3">
-                  <Wallet className="h-5 w-5 group-hover:rotate-12 transition-transform" />
-                  Start Selling
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Wallet className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+                  Tokenize Asset
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
               </Button>
               
-              <Button variant="outline" size="lg" asChild className="text-lg px-12 py-6 rounded-xl border-2 hover:bg-primary/5">
+              <Button variant="outline" size="lg" asChild className="text-lg px-16 py-8 rounded-2xl border-2 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
                 <Link to="/marketplace" className="flex items-center gap-3">
-                  <Globe className="h-5 w-5" />
-                  Explore Market
+                  <Globe className="h-6 w-6" />
+                  Browse Assets
                 </Link>
               </Button>
             </div>
             
-            <div className="pt-12 flex items-center justify-center gap-12 text-muted-foreground">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">10K+</div>
-                <div className="text-sm">Items Listed</div>
+            <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="text-center p-6 rounded-2xl bg-gradient-glow backdrop-blur-sm border border-primary/20">
+                <div className="text-4xl font-black text-primary mb-2">$50M+</div>
+                <div className="text-sm text-muted-foreground">Assets Tokenized</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">5K+</div>
-                <div className="text-sm">Active Sellers</div>
+              <div className="text-center p-6 rounded-2xl bg-gradient-glow backdrop-blur-sm border border-primary/20">
+                <div className="text-4xl font-black text-primary mb-2">2.5K+</div>
+                <div className="text-sm text-muted-foreground">Active Investors</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">$2M+</div>
-                <div className="text-sm">Volume Traded</div>
+              <div className="text-center p-6 rounded-2xl bg-gradient-glow backdrop-blur-sm border border-primary/20">
+                <div className="text-4xl font-black text-primary mb-2">15+</div>
+                <div className="text-sm text-muted-foreground">Asset Categories</div>
               </div>
             </div>
           </div>
@@ -89,51 +95,51 @@ const Home = () => {
       {/* Features Section */}
       <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent">Why Web3Market?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Experience the next generation of peer-to-peer selling with blockchain security and decentralized trust.
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">Why Choose RWA Tokenization?</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">
+              Transform illiquid assets into tradeable digital tokens. Access global markets, enhance liquidity, and unlock new investment opportunities.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center space-y-4 p-6 rounded-lg bg-card/30 backdrop-blur border border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto">
-                <Shield className="h-6 w-6 text-white" />
+            <div className="text-center space-y-6 p-8 rounded-2xl bg-gradient-glow backdrop-blur border border-primary/20 hover:shadow-glow hover:border-primary/40 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-premium group-hover:scale-110 transition-transform duration-300">
+                <Shield className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-lg">Blockchain Secured</h3>
-              <p className="text-muted-foreground text-sm">
-                Every transaction is secured by blockchain technology. No intermediaries, just pure trust.
+              <h3 className="font-bold text-xl">Asset Security</h3>
+              <p className="text-muted-foreground">
+                Every tokenized asset is secured by immutable blockchain records and smart contract verification.
               </p>
             </div>
             
-            <div className="text-center space-y-4 p-6 rounded-lg bg-card/30 backdrop-blur border border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto">
-                <Zap className="h-6 w-6 text-white" />
+            <div className="text-center space-y-6 p-8 rounded-2xl bg-gradient-glow backdrop-blur border border-primary/20 hover:shadow-glow hover:border-primary/40 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-premium group-hover:scale-110 transition-transform duration-300">
+                <Zap className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-lg">Instant Transactions</h3>
-              <p className="text-muted-foreground text-sm">
-                Smart contracts enable instant, secure transactions without waiting for approvals.
+              <h3 className="font-bold text-xl">Instant Liquidity</h3>
+              <p className="text-muted-foreground">
+                Convert illiquid assets into tradeable tokens with 24/7 market access and instant settlements.
               </p>
             </div>
             
-            <div className="text-center space-y-4 p-6 rounded-lg bg-card/30 backdrop-blur border border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto">
-                <Users className="h-6 w-6 text-white" />
+            <div className="text-center space-y-6 p-8 rounded-2xl bg-gradient-glow backdrop-blur border border-primary/20 hover:shadow-glow hover:border-primary/40 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-premium group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-lg">Decentralized Network</h3>
-              <p className="text-muted-foreground text-sm">
-                Connect with buyers and sellers globally on our decentralized marketplace.
+              <h3 className="font-bold text-xl">Global Access</h3>
+              <p className="text-muted-foreground">
+                Access global investor pools and trade assets across borders without traditional barriers.
               </p>
             </div>
             
-            <div className="text-center space-y-4 p-6 rounded-lg bg-card/30 backdrop-blur border border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto">
-                <TrendingUp className="h-6 w-6 text-white" />
+            <div className="text-center space-y-6 p-8 rounded-2xl bg-gradient-glow backdrop-blur border border-primary/20 hover:shadow-glow hover:border-primary/40 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-premium group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-lg">Zero Hidden Fees</h3>
-              <p className="text-muted-foreground text-sm">
-                Transparent, blockchain-based transactions with minimal fees. What you see is what you pay.
+              <h3 className="font-bold text-xl">Fractional Ownership</h3>
+              <p className="text-muted-foreground">
+                Enable partial ownership of high-value assets, making investments accessible to more investors.
               </p>
             </div>
           </div>
@@ -143,20 +149,29 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent">Ready to Join the Future?</h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Join thousands of sellers and buyers already using Web3Market 
-              to trade securely in the decentralized economy.
+          <div className="max-w-4xl mx-auto space-y-12">
+            <h2 className="text-6xl font-bold bg-gradient-hero bg-clip-text text-transparent">Start Tokenizing Today</h2>
+            <p className="text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              Join the revolution of asset tokenization. Transform your physical assets into digital opportunities 
+              and access the future of investment.
             </p>
             
-            <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 transition-all duration-300 shadow-premium text-lg px-12 py-6 rounded-xl group">
-              <Link to="/create" className="flex items-center gap-3">
-                <Sparkles className="h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
-                List Your First Item
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
+              <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 transition-all duration-500 shadow-premium text-xl px-16 py-8 rounded-2xl group hover:shadow-glow hover:scale-105">
+                <Link to="/create" className="flex items-center gap-4">
+                  <Sparkles className="h-6 w-6 group-hover:rotate-180 transition-transform duration-500" />
+                  Tokenize Your Asset
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+                </Link>
+              </Button>
+              
+              <Button variant="outline" size="lg" asChild className="text-xl px-16 py-8 rounded-2xl border-2 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                <Link to="/marketplace" className="flex items-center gap-4">
+                  <Globe className="h-6 w-6" />
+                  Explore Tokenized Assets
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
