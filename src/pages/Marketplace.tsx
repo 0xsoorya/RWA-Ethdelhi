@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Search, Filter, Plus } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Search, Filter, Plus, QrCode, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -85,6 +86,9 @@ const Marketplace = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
   
   const categories = ["all", "Real Estate", "Vehicles", "Art & Collectibles", "Commodities"];
   const priceRanges = [
@@ -96,10 +100,31 @@ const Marketplace = () => {
   ];
   
   const handleBuy = (assetId: string) => {
+    const asset = assets.find(a => a.id === assetId);
+    setSelectedAsset(asset || null);
+    setIsVerified(false);
+    setShowVerificationModal(true);
+  };
+
+  const handleVerify = () => {
+    // Simulate verification after 2 seconds
+    setTimeout(() => {
+      setIsVerified(true);
+      toast({
+        title: "Identity Verified!",
+        description: "You can now proceed with the token purchase.",
+      });
+    }, 2000);
+  };
+
+  const handlePurchase = () => {
     toast({
-      title: "Purchase Initiated",
-      description: "Your token purchase is being processed. You'll receive confirmation shortly.",
+      title: "Purchase Successful!",
+      description: `You have successfully purchased tokens for ${selectedAsset?.title}`,
     });
+    setShowVerificationModal(false);
+    setSelectedAsset(null);
+    setIsVerified(false);
   };
   
   const filteredAssets = assets.filter(asset => {
@@ -216,6 +241,78 @@ const Marketplace = () => {
           </div>
         )}
       </div>
+
+      {/* Verification Modal */}
+      <Dialog open={showVerificationModal} onOpenChange={setShowVerificationModal}>
+        <DialogContent className="max-w-md mx-auto bg-white">
+          <DialogHeader className="text-center">
+            
+            <p className="text-gray-600 mb-6 items-center">
+              Scan QR code to verify your region and age.
+            </p>
+          </DialogHeader>
+          
+          <div className="flex flex-col items-center space-y-6">
+            {/* QR Code Placeholder */}
+            <div className="w-64 h-64 bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
+              {isVerified ? (
+                <div className="text-center">
+                  <Check className="w-16 h-16 text-green-500 mx-auto mb-2" />
+                  <p className="text-green-600 font-medium">Verified!</p>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <QrCode className="w-16 h-16 text-gray-400 mx-auto mb-2" />
+                  <p className="text-gray-500 text-sm">QR Code Placeholder</p>
+                </div>
+              )}
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="w-full space-y-3">
+              {!isVerified ? (
+                <>
+                  <Button 
+                    className="w-full bg-gray-800 hover:bg-gray-700 text-white"
+                    onClick={handleVerify}
+                  >
+                    Copy Universal Link
+                  </Button>
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={handleVerify}
+                  >
+                    Open Self App
+                  </Button>
+                </>
+              ) : null}
+              
+              {/* User Address */}
+              <div className="text-center">
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
+                  USER ADDRESS
+                </p>
+                <p className="text-xs text-gray-600 font-mono bg-gray-50 p-2 rounded border">
+                  0x00000000000000000000000000000000000000000000000
+                </p>
+              </div>
+              
+              {/* Buy Now Button */}
+              <Button
+                className={`w-full ${
+                  isVerified 
+                    ? 'bg-green-600 hover:bg-green-700 text-white' 
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
+                disabled={!isVerified}
+                onClick={handlePurchase}
+              >
+                {isVerified ? 'Buy Now' : 'Verification Required'}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

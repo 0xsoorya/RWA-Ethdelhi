@@ -39,14 +39,13 @@ const Home = () => {
               </div>
               
               <h1 className="text-7xl md:text-9xl font-black bg-gradient-hero bg-clip-text text-transparent leading-tight tracking-tight">
-                TOKENIZE
-                <span className="block text-6xl md:text-8xl font-light">REAL WORLD</span>
-                <span className="block text-5xl md:text-7xl bg-gradient-primary bg-clip-text">ASSETS</span>
+                Tokenize Reality
+                <span className="block text-5xl md:text-7xl bg-gradient-primary bg-clip-text">Unlock Liquidity</span>
               </h1>
               
               <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-                Transform physical assets into digital tokens. Trade real estate, art, commodities, and more on the blockchain. 
-                <span className="text-primary font-medium">Unlock liquidity for any asset.</span>
+                Fractional property ownership made simple. Access premium properties worldwide through blockchain tokenization. 
+                <span className="text-primary font-medium">Unlock liquidity for your asset.</span>
               </p>
             </div>
             
@@ -96,9 +95,9 @@ const Home = () => {
       <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">Why Choose RWA Tokenization?</h2>
+            <h2 className="text-5xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">Why Choose Property Tokenization?</h2>
             <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">
-              Transform illiquid assets into tradeable digital tokens. Access global markets, enhance liquidity, and unlock new investment opportunities.
+              Transform illiquid properties into tradeable digital tokens. Access premium real estate investments, enhance liquidity, and unlock fractional ownership of high-value buildings.
             </p>
           </div>
           
@@ -127,9 +126,9 @@ const Home = () => {
               <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-premium group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-bold text-xl">Global Access</h3>
+              <h3 className="font-bold text-xl">Automated Returns</h3>
               <p className="text-muted-foreground">
-                Access global investor pools and trade assets across borders without traditional barriers.
+                Automated rent distribution, property expenses, and profit sharing through tamper-proof smart contract.
               </p>
             </div>
             
@@ -139,7 +138,7 @@ const Home = () => {
               </div>
               <h3 className="font-bold text-xl">Fractional Ownership</h3>
               <p className="text-muted-foreground">
-                Enable partial ownership of high-value assets, making investments accessible to more investors.
+                Enable partial ownership of high-value buildings and homes, making premium real estate accessible starting from just $100.
               </p>
             </div>
           </div>
